@@ -58,7 +58,24 @@ https://www.interaction-design.org/literature/topics/wireframing
 https://www.figma.com/resource-library/how-to-design-an-app/
 
 
+## Wireframing Research
 
+Wireframing helps plan the layout of the application before development begins. It allows developers to visualize how users will interact with the system and where key features will be located. For the CarFinder project, wireframes were created to map out the main interface, including search filters and results display.
+
+Key findings:
+- Wireframes should focus on layout and functionality rather than detailed design.
+- Low-fidelity wireframes help quickly test layout ideas.
+- Creating wireframes early helps clarify how users will navigate the application.
+
+
+## Branding Research
+
+Branding defines the overall look and feel of the application. This includes choosing colors, fonts, icons, and images that fit the target audience. For the CarFinder project, the goal is to create a darker, premium style theme that fits classic and JDM car culture.
+
+Key findings:
+- Consistent colors and typography help create a recognizable brand.
+- Dark themes can create a modern and premium feel.
+- Icons, images, and UI elements should follow the same visual style.
 
 
 
