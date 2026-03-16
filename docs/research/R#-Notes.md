@@ -70,7 +70,7 @@ Key findings:
 
 ## Branding Research
 
-Branding defines the overall look and feel of the application. This includes choosing colors, fonts, icons, and images that fit the target audience. For the CarFinder project, the goal is to create a darker, premium-style theme that fits classic and JDM car culture.
+Branding defines the overall look and feel of the application. This includes choosing colors, fonts, icons, and images that fit the target audience. For the CarFinder project, the goal is to create a darker, premium style theme that fits classic and JDM car culture.
 
 Key findings:
 - Consistent colors and typography help create a recognizable brand.
