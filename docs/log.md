@@ -42,7 +42,17 @@ Next week I plan to start working on the design phase of the project. This will 
 
 ### Week 2
 
-My next stand up will go here...
+⚙️ Overview  
+This week I continued working on the CarFinder project. I created wireframes to plan the layout of the application and built a style tile to define the branding, colors, fonts, and UI direction.
+
+🌵 Challenges  
+One challenge was figuring out the design direction and working with the style tile template. I had to experiment with different colors and visuals before landing on a theme that matched the project.
+
+🏆 Accomplishments  
+I improved my understanding of wireframing and branding for web applications. I also practiced using the GitHub workflow with feature branches, pull requests, and merging work into the dev branch.
+
+🔮 Next Steps  
+Next I plan to continue refining the design and begin preparing the structure for building the application.
 
 ### Week 3
 
