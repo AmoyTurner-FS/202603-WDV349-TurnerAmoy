@@ -110,3 +110,9 @@ The application will focus on a simple and clean design that allows users to eas
 *Use of an API is expected. This can be 3rd party APIs, your own API, or a combination of data sets. Identify which integrations are planned for and outline how you will use them transformatively. For 3rd party APIs provide links to their respective documentation and verify that your intended use complies with their Terms of Service.*
 
 The application will use an API to retrieve vehicle data that can be displayed and filtered by the user. Using an API will allow the application to dynamically load data and provide real time results based on user input.
+
+## Style Tile
+
+Below is the style tile used for the branding, colors, typography, and direction for the CarFinder application.
+
+![CarFinder Style Tile](CarFinder.png)
