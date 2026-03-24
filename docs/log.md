@@ -57,13 +57,17 @@ Next I plan to continue refining the design and begin preparing the structure fo
 ### Week 3
 
 ⚙️ Overview
+
 This week I focused on refining my app design and planning. I updated my wireframes in Figma and created a clickable prototype with the main pages. I also created GitHub issues to plan components, models, state, and routes, and updated my research.
 
 🌵 Challenges
+
 The main challenge was figuring out what to prioritize between design, issues, and development. I handled this by finishing the prototype first, and organizing everything into issues to stay on track.
 
 🏆 Accomplishments
+
 I now have a clear enough app structure and a fully connected prototype. I also improved how I plan work using GitHub issues.
+
 🔮 Next Steps
 
 Next, I will start building the core components and setting up state management based on my designs while continuing to follow the GitHub workflow.
