@@ -24,6 +24,10 @@ This project will demonstrate full stack development by integrating a front end 
 - JavaScript
 - API Integration (NHTSA / CarQuery)
 
+## Prototype
+
+Figma Link:(https://www.figma.com/proto/AxoOY3ci05UsDjILE212J0/Untitled?node-id=1-33&t=G1qykYWa8Qj7HQj9-1)
+
 ## Status
 
 Currently in design and planning phase. Wireframes and style tile have been created. Moving into development next.
