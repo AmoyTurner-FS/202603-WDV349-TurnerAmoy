@@ -74,7 +74,17 @@ Next, I will start building the core components and setting up state management 
 
 ### Week 4
 
-My final stand up...
+⚙️ Overview  
+This week I focused on preparing for the alpha stage by organizing my project structure, creating GitHub issues, and updating my research. I also improved my workflow by using feature branches and pull requests.
+
+🌵 Challenges  
+I had difficulty understanding how to properly manage milestones and issues. I improved this by organizing my work more clearly and following feedback from previous milestones.
+
+🏆 Accomplishments  
+I improved my project planning by breaking the app into components and using GitHub tools like issues, milestones, and pull requests more effectively.
+
+🔮 Next Steps  
+Next, I will begin building out front end components and continue following proper development workflow practices.
 
 
 
