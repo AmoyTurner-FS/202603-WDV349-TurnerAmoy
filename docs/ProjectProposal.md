@@ -111,6 +111,20 @@ The application will focus on a simple and clean design that allows users to eas
 
 The application will use an API to retrieve vehicle data that can be displayed and filtered by the user. Using an API will allow the application to dynamically load data and provide real time results based on user input.
 
+The CarFinder application will use external APIs to retrieve vehicle data and display it dynamically based on user selections.
+
+One API being considered is the NHTSA Vehicle API. This API provides detailed information about vehicles, including make, model, and year data. It will be used to populate dropdown menus and return accurate vehicle information based on user input.
+
+Another API being explored is the CarQuery API, which allows filtering of vehicles by year, make, and model. This fits directly with the main functionality of the application and will be used to return filtered results based on user selections.
+
+Additional research is being done to compare API reliability, data structure, and ease of integration before finalizing the implementation.
+
+## Style Tile
+
+Below is the style tile used for the branding, colors, typography, and direction for the CarFinder application.
+
+![CarFinder Style Tile](CarFinder.png)
+
 ---
 
 # Change Order
