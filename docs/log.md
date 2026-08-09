@@ -29,16 +29,16 @@ Each week I will summarize my milestone activity and progress by writing a stand
 ### Week 1
 
 ⚙️ Overview  
-This week I set up the project repository and followed the course material. I created the repository structure, project board, milestones, and issues. I also completed the research notes, tech stack document, and project proposal using feature branch workflow and pull requests.
+This week I focused on getting CarFinder ready for active development. I reviewed and updated the project documentation, completed the Week 1 research, organized my GitHub issues and milestone, and set up the required workflow. I also started coding the application by creating the React project with Vite and building the initial sidebar, navbar, and vehicle search interface based on my existing Figma designs.
 
 🌵 Challenges  
-One challenge this week was understanding the feature branch workflow and how the dev, stage, and main branches work together. After practicing creating branches and pull requests, I was able to better understand the process.
+One challenge this week was getting back into the GitHub feature branch workflow and making sure my local and remote branches were organized correctly. I also ran into a merge conflict with my research documentation and had a layout issue where the search component was being pushed to the bottom of the page. I worked through both issues and was able to get everything working correctly.
 
 🏆 Accomplishments  
-This week I improved my understanding of GitHub workflow. I practiced creating feature branches, merging pull requests, and organizing project work using milestones, issues, and the project board.
+My biggest accomplishment this week was moving CarFinder from the planning and design stage into actual development. I now have the React application running locally and the beginning of the interface matches the direction of my original design. I also improved my understanding of feature branches, pull requests, merge conflicts, and breaking development work into smaller GitHub issues.
 
 🔮 Next Steps  
-Next week I plan to start working on the design phase of the project. This will include creating wireframes and beginning to think about the branding and layout of the application.
+Next week I plan to continue building the remaining CarFinder components and pages. I want to focus on the vehicle card, add vehicle form, navigation and routing, and then begin preparing the application for API integration. I will continue creating and updating GitHub issues as development progresses.
 
 ### Week 2
 
