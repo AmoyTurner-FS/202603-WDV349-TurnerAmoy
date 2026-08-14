@@ -2,9 +2,9 @@
 
 # Project & Portfolio V
 
-* **Research Notes - Milestone 1**
-* **Amoy Turner**
-* **August 2026**
+- **Research Notes - Milestone 1**
+- **Amoy Turner**
+- **August 2026**
 
 <br>
 
@@ -28,12 +28,12 @@ The discovery process happens before major development and helps clarify what is
 
 Some of the questions I considered for CarFinder were:
 
-* Who is the application mainly being built for?
-* What problem is CarFinder solving?
-* Which features are most important to complete first?
-* What parts of the project have already been completed?
-* What technical or development challenges could affect the project?
-* What would make the finished application successful?
+- Who is the application mainly being built for?
+- What problem is CarFinder solving?
+- Which features are most important to complete first?
+- What parts of the project have already been completed?
+- What technical or development challenges could affect the project?
+- What would make the finished application successful?
 
 This process helped me look at the project as a whole instead of only focusing on individual coding tasks.
 
@@ -72,6 +72,16 @@ CarFinder is a web application that gives users a simple way to search for vehic
 The biggest thing I took away from this research is that development should not begin without first making sure the project still has a clear purpose and realistic scope. Since I am returning to an existing project, reviewing the original idea before continuing helps me avoid adding features that do not support the main goal.
 
 I also understand why discovery, project planning, and GitHub issues are important. Breaking the remaining work into smaller tasks makes it easier to track progress and keeps the project from becoming overwhelming.
+
+<br>
+
+## Independent Research
+
+I spent time researching vehicle APIs that could be used for CarFinder. I compared the NHTSA Vehicle API and CarQuery API to get a better idea of what kind of vehicle data each one provides.
+
+I learned that the NHTSA API provides official vehicle information, while CarQuery is more focused on searchable vehicle data like makes, models, and years. This helped me understand what kind of API will work best with the search feature I am building.
+
+This research is helping me plan the next steps for CarFinder because I now have a better idea of how the dropdowns and search results can eventually connect to real vehicle data instead of only using static information.
 
 <br>
 
