@@ -1,0 +1,16 @@
+.search-page {
+  width: 100%;
+  min-height: 100%;
+}
+
+.search-results-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 55px;
+}
+
+.vehicle-placeholder {
+  min-height: 260px;
+  background-color: #d9d9d9;
+}
