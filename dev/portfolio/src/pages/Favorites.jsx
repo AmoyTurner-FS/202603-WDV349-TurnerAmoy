@@ -1,5 +1,18 @@
+import "./Favorites.css";
+
 function Favorites() {
-  return <h2>Favorites</h2>;
+  return (
+    <section className="favorites-page">
+      <div className="favorites-grid">
+        <div className="favorite-placeholder"></div>
+        <div className="favorite-placeholder"></div>
+        <div className="favorite-placeholder"></div>
+        <div className="favorite-placeholder"></div>
+        <div className="favorite-placeholder"></div>
+        <div className="favorite-placeholder"></div>
+      </div>
+    </section>
+  );
 }
 
 export default Favorites;

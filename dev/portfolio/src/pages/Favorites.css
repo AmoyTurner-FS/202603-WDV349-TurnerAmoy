@@ -1,0 +1,17 @@
+.favorites-page {
+  width: 100%;
+  min-height: 100%;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.favorite-placeholder {
+  min-height: 260px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+}
