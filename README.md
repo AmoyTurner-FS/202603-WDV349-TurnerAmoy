@@ -26,7 +26,9 @@ This project will demonstrate full stack development by integrating a front end 
 
 ## Prototype
 
-Figma Link:(https://www.figma.com/proto/AxoOY3ci05UsDjILE212J0/Untitled?node-id=1-33&t=G1qykYWa8Qj7HQj9-1)
+🔗 **Figma Prototype**
+
+[View CarFinder Wireframes and Design](https://www.figma.com/proto/AxoOY3ci05UsDjILE212J0/Untitled?node-id=1-33&starting-point-node-id=1%3A9&t=w5GlSSHfuMwSFgkq-1)
 
 ## Status
 

@@ -1,21 +1,24 @@
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AppLayout from "./components/AppLayout";
+import Dashboard from "./pages/Dashboard";
+import SearchCars from "./pages/SearchCars";
+import AddVehicle from "./pages/AddVehicle";
+import Favorites from "./pages/Favorites";
+import VehicleDetails from "./pages/VehicleDetails";
 
 function App() {
   return (
-    <div className="app-layout">
-      <Sidebar />
-
-      <div className="content-area">
-        <Navbar />
-
-        <main className="main-content">
-          <SearchBar />
-        </main>
-      </div>
-    </div>
+    <BrowserRouter>
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/search" element={<SearchCars />} />
+          <Route path="/add-vehicle" element={<AddVehicle />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/vehicle/:id" element={<VehicleDetails />} />
+        </Routes>
+      </AppLayout>
+    </BrowserRouter>
   );
 }
 
