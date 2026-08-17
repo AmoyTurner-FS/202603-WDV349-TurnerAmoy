@@ -43,16 +43,16 @@ Next week I plan to continue building the remaining CarFinder components and pag
 ### Week 2
 
 ⚙️ Overview  
-This week I continued working on the CarFinder project. I created wireframes to plan the layout of the application and built a style tile to define the branding, colors, fonts, and UI direction.
+This week I focused on building the main structure of CarFinder in React. I created the page layouts, configured routing, built reusable components, and also worked on updating my GitHub workflow based on the feedback from Milestone 1.
 
 🌵 Challenges  
-One challenge was figuring out the design direction and working with the style tile template. I had to experiment with different colors and visuals before landing on a theme that matched the project.
+One challenge was making sure my GitHub issues and workflow followed the course requirements. I also ran into a few coding issues with file capitalization and the Search Cars grid, but I was able to troubleshoot and fix both.
 
 🏆 Accomplishments  
-I improved my understanding of wireframing and branding for web applications. I also practiced using the GitHub workflow with feature branches, pull requests, and merging work into the dev branch.
+I completed the basic structure for the Dashboard, Search Cars, Add Vehicle, and Favorites pages and created reusable components like the CarCard, footer, and page header. I also improved how I use branches, pull requests, issues, milestones, and the Project Board to manage my work.
 
 🔮 Next Steps  
-Next I plan to continue refining the design and begin preparing the structure for building the application.
+For Milestone 3, I plan to focus on functionality and visual improvements. My priorities are the Add Vehicle form, vehicle data and search functionality, Vehicle Details, Favorites, and replacing the remaining placeholders with finished components.
 
 ### Week 3
 
