@@ -9,6 +9,7 @@ function SearchCars() {
 
       <div className="search-results-layout">
         <CarCard
+          id="1"
           year="2022"
           make="Honda"
           model="Civic"
@@ -17,6 +18,7 @@ function SearchCars() {
         />
 
         <CarCard
+          id="2"
           year="2021"
           make="Toyota"
           model="Camry"
@@ -25,6 +27,7 @@ function SearchCars() {
         />
 
         <CarCard
+          id="3"
           year="2023"
           make="Nissan"
           model="Altima"
@@ -33,6 +36,7 @@ function SearchCars() {
         />
 
         <CarCard
+          id="4"
           year="2020"
           make="BMW"
           model="330i"
@@ -41,6 +45,7 @@ function SearchCars() {
         />
 
         <CarCard
+          id="5"
           year="2022"
           make="Audi"
           model="A4"
@@ -49,6 +54,7 @@ function SearchCars() {
         />
 
         <CarCard
+          id="6"
           year="2021"
           make="Lexus"
           model="IS 300"
