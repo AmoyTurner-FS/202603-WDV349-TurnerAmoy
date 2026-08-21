@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import "./CarCard.css";
 
-function CarCard({ year, make, model, price, mileage }) {
+function CarCard({ id, year, make, model, price, mileage }) {
   return (
     <article className="car-card">
       <div className="car-card-image">
@@ -20,9 +21,9 @@ function CarCard({ year, make, model, price, mileage }) {
           <strong>Mileage:</strong> {mileage} miles
         </p>
 
-        <button type="button" className="car-card-button">
+        <Link to={`/vehicle/${id}`} className="car-card-button">
           View Vehicle
-        </button>
+        </Link>
       </div>
     </article>
   );

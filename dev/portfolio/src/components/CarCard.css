@@ -40,4 +40,8 @@
   color: #111111;
   font-weight: 700;
   cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
 }
