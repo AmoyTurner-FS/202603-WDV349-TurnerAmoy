@@ -3,7 +3,31 @@ import "./AddVehicle.css";
 function AddVehicle() {
   return (
     <section className="add-vehicle-page">
+      <div className="add-vehicle-hero">
+        <div>
+          <p className="add-vehicle-eyebrow">Inventory Management</p>
+          <h2>Add a New Vehicle</h2>
+          <p className="add-vehicle-description">
+            Add vehicle information to expand the CarFinder inventory.
+          </p>
+        </div>
+
+        <div className="add-vehicle-badge">
+          <span>+</span>
+          NEW LISTING
+        </div>
+      </div>
+
       <form className="vehicle-form">
+        <div className="form-section-heading">
+          <div>
+            <p className="add-vehicle-eyebrow">Vehicle Information</p>
+            <h3>Basic Details</h3>
+          </div>
+
+          <p>Enter the main information for the vehicle.</p>
+        </div>
+
         <div className="form-grid">
           <div className="form-group">
             <label htmlFor="year">Year</label>
@@ -65,6 +89,17 @@ function AddVehicle() {
           </div>
         </div>
 
+        <div className="form-divider"></div>
+
+        <div className="form-section-heading form-section-secondary">
+          <div>
+            <p className="add-vehicle-eyebrow">Listing Details</p>
+            <h3>Additional Information</h3>
+          </div>
+
+          <p>Add identifying information and a description.</p>
+        </div>
+
         <div className="form-group full-width">
           <label htmlFor="vin">VIN</label>
           <input
@@ -91,7 +126,7 @@ function AddVehicle() {
           </button>
 
           <button type="submit" className="primary-button">
-            Add Vehicle
+            Add Vehicle <span>→</span>
           </button>
         </div>
       </form>
