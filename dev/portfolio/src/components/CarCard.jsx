@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import "./CarCard.css";
 
-function CarCard({ id, year, make, model, price, mileage }) {
+function CarCard({
+  id,
+  year,
+  make,
+  model,
+  price,
+  mileage,
+  showRemoveFavorite = false,
+}) {
   return (
     <article className="car-card">
       <div className="car-card-image">
@@ -29,10 +37,18 @@ function CarCard({ id, year, make, model, price, mileage }) {
           </div>
         </div>
 
-        <Link to={`/vehicle/${id}`} className="car-card-button">
-          View Vehicle
-          <span>→</span>
-        </Link>
+        <div className="car-card-actions">
+          <Link to={`/vehicle/${id}`} className="car-card-button">
+            View Vehicle
+            <span>→</span>
+          </Link>
+
+          {showRemoveFavorite && (
+            <button type="button" className="remove-favorite-button">
+              ♡ Remove Favorite
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );
