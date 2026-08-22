@@ -5,7 +5,35 @@ import "./SearchCars.css";
 function SearchCars() {
   return (
     <section className="search-page">
-      <SearchBar />
+      <div className="search-hero">
+        <div className="search-hero-content">
+          <p className="search-eyebrow">Find Your Next Vehicle</p>
+          <h2>Explore the Inventory</h2>
+          <p className="search-description">
+            Search through available vehicles by year, make, and model.
+          </p>
+        </div>
+
+        <div className="search-accent">
+          <span>CARFINDER</span>
+        </div>
+      </div>
+
+      <div className="search-filter-panel">
+        <SearchBar />
+      </div>
+
+      <div className="results-header">
+        <div>
+          <p className="results-eyebrow">Available Inventory</p>
+          <h3>Search Results</h3>
+        </div>
+
+        <div className="results-count">
+          <strong>6</strong>
+          <span>Vehicles Found</span>
+        </div>
+      </div>
 
       <div className="search-results-layout">
         <CarCard
