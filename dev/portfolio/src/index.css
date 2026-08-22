@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap");
 
+:root {
+  --cf-black: #111111;
+  --cf-dark: #181818;
+  --cf-charcoal: #242424;
+
+  --cf-gold: #dfb42c;
+  --cf-gold-light: #f0ca55;
+
+  --cf-purple: #4b1fa3;
+  --cf-purple-light: #742bbd;
+
+  --cf-gray: #e4e4e4;
+  --cf-gray-dark: #9b9b9b;
+
+  --cf-white: #f7f7f7;
+}
+
 * {
   box-sizing: border-box;
 }
