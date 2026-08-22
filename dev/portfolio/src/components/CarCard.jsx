@@ -5,24 +5,33 @@ function CarCard({ id, year, make, model, price, mileage }) {
   return (
     <article className="car-card">
       <div className="car-card-image">
-        <span>Vehicle Image</span>
+        <span className="car-card-image-label">Vehicle Image</span>
+
+        <div className="car-card-year">{year}</div>
       </div>
 
       <div className="car-card-content">
+        <p className="car-card-label">Available Vehicle</p>
+
         <h3>
-          {year} {make} {model}
+          {make} {model}
         </h3>
 
-        <p>
-          <strong>Price:</strong> ${price}
-        </p>
+        <div className="car-card-details">
+          <div className="car-card-detail">
+            <span>Price</span>
+            <strong>${Number(price).toLocaleString()}</strong>
+          </div>
 
-        <p>
-          <strong>Mileage:</strong> {mileage} miles
-        </p>
+          <div className="car-card-detail">
+            <span>Mileage</span>
+            <strong>{Number(mileage).toLocaleString()} mi</strong>
+          </div>
+        </div>
 
         <Link to={`/vehicle/${id}`} className="car-card-button">
           View Vehicle
+          <span>→</span>
         </Link>
       </div>
     </article>
