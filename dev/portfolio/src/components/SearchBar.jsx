@@ -9,7 +9,7 @@ const vehicleYears = Array.from(
   (_, index) => currentYear - index
 );
 
-function SearchBar() {
+function SearchBar({ onSearch }) {
   const [makes, setMakes] = useState([]);
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedMake, setSelectedMake] = useState("");
@@ -145,7 +145,18 @@ function SearchBar() {
           </select>
         </div>
 
-        <button type="button" className="search-button">
+        <button
+          type="button"
+          className="search-button"
+          onClick={() =>
+            onSearch({
+              year: selectedYear,
+              make: selectedMake,
+              model: selectedModel,
+            })
+          }
+          disabled={!selectedYear}
+        >
           <span>Search</span>
           <span className="search-button-arrow">→</span>
         </button>

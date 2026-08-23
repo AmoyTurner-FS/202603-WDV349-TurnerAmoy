@@ -1,8 +1,28 @@
+import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import CarCard from "../components/CarCard";
+import vehicles from "../data/vehicles";
 import "./SearchCars.css";
 
 function SearchCars() {
+  const [filteredVehicles, setFilteredVehicles] = useState(vehicles);
+
+  const handleSearch = ({ year, make, model }) => {
+    const results = vehicles.filter((vehicle) => {
+      const matchesYear = vehicle.year === year;
+
+      const matchesMake =
+        !make || vehicle.make.toLowerCase() === make.toLowerCase();
+
+      const matchesModel =
+        !model || vehicle.model.toLowerCase() === model.toLowerCase();
+
+      return matchesYear && matchesMake && matchesModel;
+    });
+
+    setFilteredVehicles(results);
+  };
+
   return (
     <section className="search-page">
       <div className="search-hero">
@@ -20,7 +40,7 @@ function SearchCars() {
       </div>
 
       <div className="search-filter-panel">
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
       </div>
 
       <div className="results-header">
@@ -30,65 +50,30 @@ function SearchCars() {
         </div>
 
         <div className="results-count">
-          <strong>6</strong>
+          <strong>{filteredVehicles.length}</strong>
           <span>Vehicles Found</span>
         </div>
       </div>
 
       <div className="search-results-layout">
-        <CarCard
-          id="1"
-          year="2022"
-          make="Honda"
-          model="Civic"
-          price="24500"
-          mileage="28000"
-        />
-
-        <CarCard
-          id="2"
-          year="2021"
-          make="Toyota"
-          model="Camry"
-          price="23000"
-          mileage="32000"
-        />
-
-        <CarCard
-          id="3"
-          year="2023"
-          make="Nissan"
-          model="Altima"
-          price="27000"
-          mileage="18000"
-        />
-
-        <CarCard
-          id="4"
-          year="2020"
-          make="BMW"
-          model="330i"
-          price="29500"
-          mileage="41000"
-        />
-
-        <CarCard
-          id="5"
-          year="2022"
-          make="Audi"
-          model="A4"
-          price="31000"
-          mileage="26000"
-        />
-
-        <CarCard
-          id="6"
-          year="2021"
-          make="Lexus"
-          model="IS 300"
-          price="32500"
-          mileage="30000"
-        />
+        {filteredVehicles.length > 0 ? (
+          filteredVehicles.map((vehicle) => (
+            <CarCard
+              key={vehicle.id}
+              id={vehicle.id}
+              year={vehicle.year}
+              make={vehicle.make}
+              model={vehicle.model}
+              price={vehicle.price}
+              mileage={vehicle.mileage}
+            />
+          ))
+        ) : (
+          <div className="no-results">
+            <h3>No Vehicles Found</h3>
+            <p>Try a different year, make, or model.</p>
+          </div>
+        )}
       </div>
     </section>
   );
