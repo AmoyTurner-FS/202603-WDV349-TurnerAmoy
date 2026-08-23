@@ -1,26 +1,48 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import CarCard from "../components/CarCard";
 import vehicles from "../data/vehicles";
 import "./SearchCars.css";
 
+const filterVehicles = ({ year, make, model }) => {
+  if (!year) {
+    return vehicles;
+  }
+
+  return vehicles.filter((vehicle) => {
+    const matchesYear = vehicle.year === year;
+
+    const matchesMake =
+      !make || vehicle.make.toLowerCase() === make.toLowerCase();
+
+    const matchesModel =
+      !model || vehicle.model.toLowerCase() === model.toLowerCase();
+
+    return matchesYear && matchesMake && matchesModel;
+  });
+};
+
 function SearchCars() {
-  const [filteredVehicles, setFilteredVehicles] = useState(vehicles);
+  const location = useLocation();
 
-  const handleSearch = ({ year, make, model }) => {
-    const results = vehicles.filter((vehicle) => {
-      const matchesYear = vehicle.year === year;
+  const savedSearch = location.state?.searchState || {
+    year: "",
+    make: "",
+    model: "",
+  };
 
-      const matchesMake =
-        !make || vehicle.make.toLowerCase() === make.toLowerCase();
+  const [filteredVehicles, setFilteredVehicles] = useState(() =>
+    filterVehicles(savedSearch)
+  );
 
-      const matchesModel =
-        !model || vehicle.model.toLowerCase() === model.toLowerCase();
+  const [activeSearch, setActiveSearch] = useState(savedSearch);
 
-      return matchesYear && matchesMake && matchesModel;
-    });
+  const handleSearch = (filters) => {
+    const results = filterVehicles(filters);
 
     setFilteredVehicles(results);
+    setActiveSearch(filters);
   };
 
   return (
@@ -40,7 +62,7 @@ function SearchCars() {
       </div>
 
       <div className="search-filter-panel">
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} initialFilters={savedSearch} />
       </div>
 
       <div className="results-header">
@@ -66,6 +88,7 @@ function SearchCars() {
               model={vehicle.model}
               price={vehicle.price}
               mileage={vehicle.mileage}
+              searchState={activeSearch}
             />
           ))
         ) : (

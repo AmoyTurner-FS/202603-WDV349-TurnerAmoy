@@ -72,6 +72,7 @@ function Favorites() {
                 price={vehicle.price}
                 mileage={vehicle.mileage}
                 showRemoveFavorite={true}
+                fromPage="favorites"
               />
             ))}
           </div>
