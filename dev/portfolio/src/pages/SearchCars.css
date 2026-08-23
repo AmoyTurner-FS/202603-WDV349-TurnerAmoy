@@ -125,3 +125,22 @@
   width: 100%;
   align-items: start;
 }
+
+.no-results {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
+  border: 1px dashed #3d3d3d;
+  border-radius: 10px;
+  background: #121212;
+}
+
+.no-results h3 {
+  margin: 0 0 8px;
+  color: var(--cf-white);
+}
+
+.no-results p {
+  margin: 0;
+  color: var(--cf-gray);
+}
