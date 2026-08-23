@@ -1,6 +1,66 @@
+import { useEffect, useState } from "react";
+import { getVehicleMakes, getModelsForMakeYear } from "../services/vehicleApi";
 import "./SearchBar.css";
 
+const currentYear = new Date().getFullYear();
+
+const vehicleYears = Array.from(
+  { length: currentYear - 1980 + 1 },
+  (_, index) => currentYear - index
+);
+
 function SearchBar() {
+  const [makes, setMakes] = useState([]);
+  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedMake, setSelectedMake] = useState("");
+  const [models, setModels] = useState([]);
+  const [selectedModel, setSelectedModel] = useState("");
+
+  useEffect(() => {
+    const loadMakes = async () => {
+      try {
+        const results = await getVehicleMakes();
+
+        const sortedMakes = results
+          .map((item) => item.MakeName)
+          .filter(Boolean)
+          .sort((a, b) => a.localeCompare(b));
+
+        setMakes(sortedMakes);
+      } catch (error) {
+        console.error("Failed to load vehicle makes:", error);
+      }
+    };
+
+    loadMakes();
+  }, []);
+
+  useEffect(() => {
+    const loadModels = async () => {
+      if (!selectedYear || !selectedMake) {
+        setModels([]);
+        setSelectedModel("");
+        return;
+      }
+
+      try {
+        const results = await getModelsForMakeYear(selectedMake, selectedYear);
+
+        const sortedModels = [
+          ...new Set(results.map((item) => item.Model_Name).filter(Boolean)),
+        ].sort((a, b) => a.localeCompare(b));
+
+        setModels(sortedModels);
+        setSelectedModel("");
+      } catch (error) {
+        console.error("Failed to load vehicle models:", error);
+        setModels([]);
+      }
+    };
+
+    loadModels();
+  }, [selectedYear, selectedMake]);
+
   return (
     <section className="search-section">
       <div className="search-heading">
@@ -17,28 +77,71 @@ function SearchBar() {
       <div className="search-controls">
         <div className="search-field">
           <label htmlFor="search-year">Year</label>
-          <select id="search-year" defaultValue="">
+          <select
+            id="search-year"
+            value={selectedYear}
+            onChange={(event) => {
+              setSelectedYear(event.target.value);
+              setSelectedMake("");
+              setSelectedModel("");
+              setModels([]);
+            }}
+          >
             <option value="" disabled>
               Select Year
             </option>
+
+            {vehicleYears.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="search-field">
           <label htmlFor="search-make">Make</label>
-          <select id="search-make" defaultValue="">
+          <select
+            id="search-make"
+            value={selectedMake}
+            onChange={(event) => {
+              setSelectedMake(event.target.value);
+              setSelectedModel("");
+              setModels([]);
+            }}
+            disabled={!selectedYear}
+          >
             <option value="" disabled>
-              Select Make
+              {selectedYear ? "Select Make" : "Select Year First"}
             </option>
+
+            {makes.map((make) => (
+              <option key={make} value={make}>
+                {make}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="search-field">
           <label htmlFor="search-model">Model</label>
-          <select id="search-model" defaultValue="">
+          <select
+            id="search-model"
+            value={selectedModel}
+            onChange={(event) => setSelectedModel(event.target.value)}
+            disabled={!selectedYear || !selectedMake}
+          >
             <option value="" disabled>
-              Select Model
+              {!selectedYear || !selectedMake
+                ? "Select Year & Make First"
+                : "Select Model"}
             </option>
+
+            {models.map((model) => (
+              <option key={model} value={model}>
+                {model}
+              </option>
+            ))}
           </select>
         </div>
 
