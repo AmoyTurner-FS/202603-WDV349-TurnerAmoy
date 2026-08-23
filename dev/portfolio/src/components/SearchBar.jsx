@@ -9,12 +9,14 @@ const vehicleYears = Array.from(
   (_, index) => currentYear - index
 );
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, initialFilters = {} }) {
   const [makes, setMakes] = useState([]);
-  const [selectedYear, setSelectedYear] = useState("");
-  const [selectedMake, setSelectedMake] = useState("");
   const [models, setModels] = useState([]);
-  const [selectedModel, setSelectedModel] = useState("");
+  const [selectedYear, setSelectedYear] = useState(initialFilters.year || "");
+  const [selectedMake, setSelectedMake] = useState(initialFilters.make || "");
+  const [selectedModel, setSelectedModel] = useState(
+    initialFilters.model || ""
+  );
 
   useEffect(() => {
     const loadMakes = async () => {
@@ -51,7 +53,6 @@ function SearchBar({ onSearch }) {
         ].sort((a, b) => a.localeCompare(b));
 
         setModels(sortedModels);
-        setSelectedModel("");
       } catch (error) {
         console.error("Failed to load vehicle models:", error);
         setModels([]);

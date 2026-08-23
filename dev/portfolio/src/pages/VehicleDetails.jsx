@@ -1,6 +1,23 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import "./VehicleDetails.css";
 
 function VehicleDetails() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const fromPage = location.state?.from || "search";
+  const searchState = location.state?.searchState;
+
+  const handleBack = () => {
+    if (fromPage === "favorites") {
+      navigate("/favorites");
+    } else {
+      navigate("/search", {
+        state: { searchState },
+      });
+    }
+  };
+
   const vehicle = {
     year: 2022,
     make: "Honda",
@@ -12,7 +29,7 @@ function VehicleDetails() {
     fuelType: "Gasoline",
     vin: "2HGFC2F59NH000001",
     description:
-      "A reliable and fuel-efficient sedan with low mileage and a clean interior.",
+      "A reliable and fuel efficient sedan with low mileage and a clean interior.",
   };
 
   return (
@@ -31,7 +48,9 @@ function VehicleDetails() {
         <button className="favorite-button">♡ Add to Favorites</button>
       </div>
 
-      <button className="back-button">← Back to Search</button>
+      <button className="back-button" onClick={handleBack}>
+        ← Back to {fromPage === "favorites" ? "Favorites" : "Search"}
+      </button>
 
       <div className="vehicle-details-card">
         <div className="vehicle-details-image">

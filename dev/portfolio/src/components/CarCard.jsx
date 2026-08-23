@@ -9,6 +9,8 @@ function CarCard({
   price,
   mileage,
   showRemoveFavorite = false,
+  fromPage = "search",
+  searchState = null,
 }) {
   return (
     <article className="car-card">
@@ -38,7 +40,14 @@ function CarCard({
         </div>
 
         <div className="car-card-actions">
-          <Link to={`/vehicle/${id}`} className="car-card-button">
+          <Link
+            to={`/vehicle/${id}`}
+            state={{
+              from: fromPage,
+              searchState,
+            }}
+            className="car-card-button"
+          >
             View Vehicle
             <span>→</span>
           </Link>
