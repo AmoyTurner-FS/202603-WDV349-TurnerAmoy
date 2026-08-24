@@ -56,21 +56,17 @@ For Milestone 3, I plan to focus on functionality and visual improvements. My pr
 
 ### Week 3
 
-⚙️ Overview
+⚙️ Overview  
+This week I focused on making CarFinder more functional. I integrated the NHTSA API, improved vehicle search and navigation, tested the application, and completed research on security and innovation.
 
-This week I focused on refining my app design and planning. I updated my wireframes in Figma and created a clickable prototype with the main pages. I also created GitHub issues to plan components, models, state, and routes, and updated my research.
+🌵 Challenges  
+The main challenges were getting the search filters and Vehicle Details navigation to work correctly. I tested the features as I worked and fixed the issues I found.
 
-🌵 Challenges
+🏆 Accomplishments  
+I successfully connected the NHTSA API and improved the Search Cars functionality. I also completed testing, documented future improvements, and researched OWASP risks and automated code scanning.
 
-The main challenge was figuring out what to prioritize between design, issues, and development. I handled this by finishing the prototype first, and organizing everything into issues to stay on track.
-
-🏆 Accomplishments
-
-I now have a clear enough app structure and a fully connected prototype. I also improved how I plan work using GitHub issues.
-
-🔮 Next Steps
-
-Next, I will start building the core components and setting up state management based on my designs while continuing to follow the GitHub workflow.
+🔮 Next Steps  
+Next week I plan to fix the remaining issues found during testing and continue making CarFinder fully functional. I will also expand the NHTSA API features and continue improving security.
 
 ### Week 4
 
