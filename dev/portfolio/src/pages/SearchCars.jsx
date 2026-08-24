@@ -1,60 +1,102 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import CarCard from "../components/CarCard";
+import vehicles from "../data/vehicles";
 import "./SearchCars.css";
 
+const filterVehicles = ({ year, make, model }) => {
+  if (!year) {
+    return vehicles;
+  }
+
+  return vehicles.filter((vehicle) => {
+    const matchesYear = vehicle.year === year;
+
+    const matchesMake =
+      !make || vehicle.make.toLowerCase() === make.toLowerCase();
+
+    const matchesModel =
+      !model || vehicle.model.toLowerCase() === model.toLowerCase();
+
+    return matchesYear && matchesMake && matchesModel;
+  });
+};
+
 function SearchCars() {
+  const location = useLocation();
+
+  const savedSearch = location.state?.searchState || {
+    year: "",
+    make: "",
+    model: "",
+  };
+
+  const [filteredVehicles, setFilteredVehicles] = useState(() =>
+    filterVehicles(savedSearch)
+  );
+
+  const [activeSearch, setActiveSearch] = useState(savedSearch);
+
+  const handleSearch = (filters) => {
+    const results = filterVehicles(filters);
+
+    setFilteredVehicles(results);
+    setActiveSearch(filters);
+  };
+
   return (
     <section className="search-page">
-      <SearchBar />
+      <div className="search-hero">
+        <div className="search-hero-content">
+          <p className="search-eyebrow">Find Your Next Vehicle</p>
+          <h2>Explore the Inventory</h2>
+          <p className="search-description">
+            Search through available vehicles by year, make, and model.
+          </p>
+        </div>
+
+        <div className="search-accent">
+          <span>CARFINDER</span>
+        </div>
+      </div>
+
+      <div className="search-filter-panel">
+        <SearchBar onSearch={handleSearch} initialFilters={savedSearch} />
+      </div>
+
+      <div className="results-header">
+        <div>
+          <p className="results-eyebrow">Available Inventory</p>
+          <h3>Search Results</h3>
+        </div>
+
+        <div className="results-count">
+          <strong>{filteredVehicles.length}</strong>
+          <span>Vehicles Found</span>
+        </div>
+      </div>
 
       <div className="search-results-layout">
-        <CarCard
-          year="2022"
-          make="Honda"
-          model="Civic"
-          price="24500"
-          mileage="28000"
-        />
-
-        <CarCard
-          year="2021"
-          make="Toyota"
-          model="Camry"
-          price="23000"
-          mileage="32000"
-        />
-
-        <CarCard
-          year="2023"
-          make="Nissan"
-          model="Altima"
-          price="27000"
-          mileage="18000"
-        />
-
-        <CarCard
-          year="2020"
-          make="BMW"
-          model="330i"
-          price="29500"
-          mileage="41000"
-        />
-
-        <CarCard
-          year="2022"
-          make="Audi"
-          model="A4"
-          price="31000"
-          mileage="26000"
-        />
-
-        <CarCard
-          year="2021"
-          make="Lexus"
-          model="IS 300"
-          price="32500"
-          mileage="30000"
-        />
+        {filteredVehicles.length > 0 ? (
+          filteredVehicles.map((vehicle) => (
+            <CarCard
+              key={vehicle.id}
+              id={vehicle.id}
+              year={vehicle.year}
+              make={vehicle.make}
+              model={vehicle.model}
+              price={vehicle.price}
+              mileage={vehicle.mileage}
+              searchState={activeSearch}
+            />
+          ))
+        ) : (
+          <div className="no-results">
+            <h3>No Vehicles Found</h3>
+            <p>Try a different year, make, or model.</p>
+          </div>
+        )}
       </div>
     </section>
   );

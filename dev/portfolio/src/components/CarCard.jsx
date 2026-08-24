@@ -1,28 +1,63 @@
+import { Link } from "react-router-dom";
 import "./CarCard.css";
 
-function CarCard({ year, make, model, price, mileage }) {
+function CarCard({
+  id,
+  year,
+  make,
+  model,
+  price,
+  mileage,
+  showRemoveFavorite = false,
+  fromPage = "search",
+  searchState = null,
+}) {
   return (
     <article className="car-card">
       <div className="car-card-image">
-        <span>Vehicle Image</span>
+        <span className="car-card-image-label">Vehicle Image</span>
+
+        <div className="car-card-year">{year}</div>
       </div>
 
       <div className="car-card-content">
+        <p className="car-card-label">Available Vehicle</p>
+
         <h3>
-          {year} {make} {model}
+          {make} {model}
         </h3>
 
-        <p>
-          <strong>Price:</strong> ${price}
-        </p>
+        <div className="car-card-details">
+          <div className="car-card-detail">
+            <span>Price</span>
+            <strong>${Number(price).toLocaleString()}</strong>
+          </div>
 
-        <p>
-          <strong>Mileage:</strong> {mileage} miles
-        </p>
+          <div className="car-card-detail">
+            <span>Mileage</span>
+            <strong>{Number(mileage).toLocaleString()} mi</strong>
+          </div>
+        </div>
 
-        <button type="button" className="car-card-button">
-          View Vehicle
-        </button>
+        <div className="car-card-actions">
+          <Link
+            to={`/vehicle/${id}`}
+            state={{
+              from: fromPage,
+              searchState,
+            }}
+            className="car-card-button"
+          >
+            View Vehicle
+            <span>→</span>
+          </Link>
+
+          {showRemoveFavorite && (
+            <button type="button" className="remove-favorite-button">
+              ♡ Remove Favorite
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );
