@@ -62,6 +62,19 @@ function SearchBar({ onSearch, initialFilters = {} }) {
     loadModels();
   }, [selectedYear, selectedMake]);
 
+  const handleClearFilters = () => {
+    setSelectedYear("");
+    setSelectedMake("");
+    setSelectedModel("");
+    setModels([]);
+
+    onSearch({
+      year: "",
+      make: "",
+      model: "",
+    });
+  };
+
   return (
     <section className="search-section">
       <div className="search-heading">
@@ -160,6 +173,14 @@ function SearchBar({ onSearch, initialFilters = {} }) {
         >
           <span>Search</span>
           <span className="search-button-arrow">→</span>
+        </button>
+
+        <button
+          type="button"
+          className="clear-filters-button"
+          onClick={handleClearFilters}
+        >
+          × Clear Filters
         </button>
       </div>
     </section>
