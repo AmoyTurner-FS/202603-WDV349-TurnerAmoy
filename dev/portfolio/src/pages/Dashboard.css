@@ -41,16 +41,6 @@
   color: var(--cf-gray-dark);
 }
 
-.dashboard-primary-action {
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  background: var(--cf-gold);
-  color: var(--cf-black);
-  font-weight: 700;
-  cursor: pointer;
-}
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
