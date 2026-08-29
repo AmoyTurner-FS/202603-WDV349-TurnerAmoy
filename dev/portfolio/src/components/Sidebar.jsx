@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import carFinderLogo from "../assets/carfinder-logo.png";
 import "./Sidebar.css";
 
 function Sidebar() {
+  const [isLogoOpen, setIsLogoOpen] = useState(false);
+
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <div className="sidebar-logo-mark">
+        <button
+          type="button"
+          className="sidebar-logo-mark"
+          onClick={() => setIsLogoOpen(true)}
+          aria-label="View larger CarFinder logo"
+        >
           <img src={carFinderLogo} alt="CarFinder logo" />
-        </div>
+        </button>
 
         <div className="sidebar-brand">
           <h1>CarFinder</h1>
@@ -60,6 +68,29 @@ function Sidebar() {
           <span>Favorites</span>
         </NavLink>
       </nav>
+
+      {isLogoOpen && (
+        <div
+          className="logo-modal-overlay"
+          onClick={() => setIsLogoOpen(false)}
+        >
+          <div
+            className="logo-modal"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="logo-modal-close"
+              onClick={() => setIsLogoOpen(false)}
+              aria-label="Close logo"
+            >
+              ×
+            </button>
+
+            <img src={carFinderLogo} alt="CarFinder logo enlarged" />
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

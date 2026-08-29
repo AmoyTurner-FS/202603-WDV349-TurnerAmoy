@@ -206,3 +206,80 @@
 .sidebar-link.active .sidebar-link-icon {
   color: var(--cf-gold);
 }
+
+.sidebar-logo-mark {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.logo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.logo-modal {
+  position: relative;
+
+  width: min(500px, 90vw);
+  padding: 24px;
+
+  border: 1px solid var(--cf-gold);
+  border-radius: 14px;
+
+  background: #111111;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.logo-modal img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+}
+
+.logo-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid var(--cf-gold);
+  border-radius: 50%;
+
+  background: #111111;
+  color: var(--cf-gold);
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.logo-modal-close:hover {
+  background: var(--cf-gold);
+  color: #111111;
+}
+
+@media (max-width: 650px) {
+  .logo-modal {
+    width: 95vw;
+    padding: 18px;
+  }
+}
