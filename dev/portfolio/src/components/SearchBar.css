@@ -144,3 +144,25 @@
     grid-template-columns: 1fr;
   }
 }
+
+.clear-filters-button {
+  grid-column: 1 / -1;
+  justify-self: end;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+  color: var(--cf-gray);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.clear-filters-button:hover {
+  color: var(--cf-gold);
+}
