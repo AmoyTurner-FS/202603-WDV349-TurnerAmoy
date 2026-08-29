@@ -54,7 +54,9 @@ function VehicleDetails() {
           </p>
         </div>
 
-        <button className="favorite-button">♡ Add to Favorites</button>
+        {fromPage !== "favorites" && (
+          <button className="favorite-button">♡ Add to Favorites</button>
+        )}
       </div>
 
       <button className="back-button" onClick={handleBack}>
