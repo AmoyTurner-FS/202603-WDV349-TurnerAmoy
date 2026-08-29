@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { getAllVehicles } from "../utils/inventory";
 import SearchBar from "../components/SearchBar";
 import CarCard from "../components/CarCard";
-import vehicles from "../data/vehicles";
 import "./SearchCars.css";
 
-const filterVehicles = ({ year, make, model }) => {
+const filterVehicles = (vehicles, { year, make, model }) => {
   if (!year) {
     return vehicles;
   }
@@ -33,13 +33,13 @@ function SearchCars() {
   };
 
   const [filteredVehicles, setFilteredVehicles] = useState(() =>
-    filterVehicles(savedSearch)
+    filterVehicles(getAllVehicles(), savedSearch)
   );
 
   const [activeSearch, setActiveSearch] = useState(savedSearch);
 
   const handleSearch = (filters) => {
-    const results = filterVehicles(filters);
+    const results = filterVehicles(getAllVehicles(), filters);
 
     setFilteredVehicles(results);
     setActiveSearch(filters);

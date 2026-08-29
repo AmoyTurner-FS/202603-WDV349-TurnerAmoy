@@ -1,6 +1,34 @@
+import { useState } from "react";
+import { addVehicle } from "../utils/inventory";
 import "./AddVehicle.css";
 
 function AddVehicle() {
+  const [message, setMessage] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const vehicle = {
+      year: formData.get("year"),
+      make: formData.get("make"),
+      model: formData.get("model"),
+      price: formData.get("price"),
+      mileage: formData.get("mileage"),
+      color: formData.get("color"),
+      transmission: formData.get("transmission"),
+      fuelType: formData.get("fuelType"),
+      vin: formData.get("vin"),
+      description: formData.get("description"),
+    };
+
+    addVehicle(vehicle);
+
+    event.currentTarget.reset();
+    setMessage("Vehicle added to inventory.");
+  }
+
   return (
     <section className="add-vehicle-page">
       <div className="add-vehicle-hero">
@@ -18,7 +46,7 @@ function AddVehicle() {
         </div>
       </div>
 
-      <form className="vehicle-form">
+      <form className="vehicle-form" onSubmit={handleSubmit}>
         <div className="form-section-heading">
           <div>
             <p className="add-vehicle-eyebrow">Vehicle Information</p>
@@ -119,6 +147,8 @@ function AddVehicle() {
             placeholder="Add a short description about the vehicle..."
           ></textarea>
         </div>
+
+        {message && <p className="form-message">{message}</p>}
 
         <div className="form-actions">
           <button type="reset" className="secondary-button">
