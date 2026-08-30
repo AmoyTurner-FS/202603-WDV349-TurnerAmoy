@@ -1,9 +1,11 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { getAllVehicles } from "../utils/inventory";
 import "./VehicleDetails.css";
 
 function VehicleDetails() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const fromPage = location.state?.from || "search";
   const searchState = location.state?.searchState;
@@ -18,19 +20,26 @@ function VehicleDetails() {
     }
   };
 
-  const vehicle = {
-    year: 2022,
-    make: "Honda",
-    model: "Civic",
-    price: 24500,
-    mileage: 28000,
-    color: "Black",
-    transmission: "Automatic",
-    fuelType: "Gasoline",
-    vin: "2HGFC2F59NH000001",
-    description:
-      "A reliable and fuel efficient sedan with low mileage and a clean interior.",
-  };
+  const vehicle = getAllVehicles().find(
+    (vehicle) => String(vehicle.id) === String(id)
+  );
+
+  if (!vehicle) {
+    return (
+      <section className="vehicle-details-page">
+        <div className="vehicle-details-card">
+          <div className="vehicle-details-content">
+            <h2>Vehicle Not Found</h2>
+            <p>The vehicle you are looking for is no longer available.</p>
+
+            <button className="back-button" onClick={() => navigate("/search")}>
+              ← Back to Search
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="vehicle-details-page">
@@ -45,7 +54,9 @@ function VehicleDetails() {
           </p>
         </div>
 
-        <button className="favorite-button">♡ Add to Favorites</button>
+        {fromPage !== "favorites" && (
+          <button className="favorite-button">♡ Add to Favorites</button>
+        )}
       </div>
 
       <button className="back-button" onClick={handleBack}>

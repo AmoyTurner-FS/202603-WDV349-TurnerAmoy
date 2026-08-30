@@ -1,6 +1,34 @@
+import { useState } from "react";
+import { addVehicle } from "../utils/inventory";
 import "./AddVehicle.css";
 
 function AddVehicle() {
+  const [message, setMessage] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const vehicle = {
+      year: formData.get("year"),
+      make: formData.get("make"),
+      model: formData.get("model"),
+      price: formData.get("price"),
+      mileage: formData.get("mileage"),
+      color: formData.get("color"),
+      transmission: formData.get("transmission"),
+      fuelType: formData.get("fuelType"),
+      vin: formData.get("vin"),
+      description: formData.get("description"),
+    };
+
+    addVehicle(vehicle);
+
+    event.currentTarget.reset();
+    setMessage("Vehicle added to inventory.");
+  }
+
   return (
     <section className="add-vehicle-page">
       <div className="add-vehicle-hero">
@@ -18,7 +46,7 @@ function AddVehicle() {
         </div>
       </div>
 
-      <form className="vehicle-form">
+      <form className="vehicle-form" onSubmit={handleSubmit}>
         <div className="form-section-heading">
           <div>
             <p className="add-vehicle-eyebrow">Vehicle Information</p>
@@ -31,22 +59,49 @@ function AddVehicle() {
         <div className="form-grid">
           <div className="form-group">
             <label htmlFor="year">Year</label>
-            <input type="number" id="year" name="year" placeholder="2024" />
+            <input
+              type="number"
+              id="year"
+              name="year"
+              placeholder="2024"
+              min="1980"
+              max="2026"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="make">Make</label>
-            <input type="text" id="make" name="make" placeholder="Honda" />
+            <input
+              type="text"
+              id="make"
+              name="make"
+              placeholder="Honda"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="model">Model</label>
-            <input type="text" id="model" name="model" placeholder="Civic" />
+            <input
+              type="text"
+              id="model"
+              name="model"
+              placeholder="Civic"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="price">Price</label>
-            <input type="number" id="price" name="price" placeholder="24500" />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              placeholder="24500"
+              min="0"
+              required
+            />
           </div>
 
           <div className="form-group">
@@ -56,17 +111,30 @@ function AddVehicle() {
               id="mileage"
               name="mileage"
               placeholder="28000"
+              min="0"
+              required
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="color">Color</label>
-            <input type="text" id="color" name="color" placeholder="Black" />
+            <input
+              type="text"
+              id="color"
+              name="color"
+              placeholder="Black"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="transmission">Transmission</label>
-            <select id="transmission" name="transmission" defaultValue="">
+            <select
+              id="transmission"
+              name="transmission"
+              defaultValue=""
+              required
+            >
               <option value="" disabled>
                 Select Transmission
               </option>
@@ -77,7 +145,7 @@ function AddVehicle() {
 
           <div className="form-group">
             <label htmlFor="fuelType">Fuel Type</label>
-            <select id="fuelType" name="fuelType" defaultValue="">
+            <select id="fuelType" name="fuelType" defaultValue="" required>
               <option value="" disabled>
                 Select Fuel Type
               </option>
@@ -107,6 +175,9 @@ function AddVehicle() {
             id="vin"
             name="vin"
             placeholder="Vehicle Identification Number"
+            minLength="11"
+            maxLength="17"
+            required
           />
         </div>
 
@@ -117,8 +188,11 @@ function AddVehicle() {
             name="description"
             rows="5"
             placeholder="Add a short description about the vehicle..."
+            required
           ></textarea>
         </div>
+
+        {message && <p className="form-message">{message}</p>}
 
         <div className="form-actions">
           <button type="reset" className="secondary-button">

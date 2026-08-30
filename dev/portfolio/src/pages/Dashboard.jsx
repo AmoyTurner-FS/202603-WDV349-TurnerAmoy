@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <section className="dashboard-page">
       <div className="dashboard-intro">
@@ -11,8 +14,6 @@ function Dashboard() {
             Here’s a quick look at what’s happening with CarFinder.
           </p>
         </div>
-
-        <button className="dashboard-primary-action">+ Add Vehicle</button>
       </div>
 
       <div className="stats-grid">
@@ -49,7 +50,9 @@ function Dashboard() {
               <h3>Recent Vehicles</h3>
             </div>
 
-            <button className="text-action">View All</button>
+            <button className="text-action" onClick={() => navigate("/search")}>
+              View All
+            </button>
           </div>
 
           <div className="recent-vehicle-list">
@@ -132,9 +135,9 @@ function Dashboard() {
       </div>
 
       <div className="quick-actions">
-        <button>Search Inventory</button>
-        <button>Add Vehicle</button>
-        <button>View Favorites</button>
+        <button onClick={() => navigate("/search")}>Search Inventory</button>
+        <button onClick={() => navigate("/add-vehicle")}>Add Vehicle</button>
+        <button onClick={() => navigate("/favorites")}>View Favorites</button>
       </div>
     </section>
   );

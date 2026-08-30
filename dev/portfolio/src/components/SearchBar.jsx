@@ -18,8 +18,15 @@ function SearchBar({ onSearch, initialFilters = {} }) {
     initialFilters.model || ""
   );
 
+  const [isLoadingMakes, setIsLoadingMakes] = useState(true);
+  const [isLoadingModels, setIsLoadingModels] = useState(false);
+  const [apiError, setApiError] = useState("");
+
   useEffect(() => {
     const loadMakes = async () => {
+      setIsLoadingMakes(true);
+      setApiError("");
+
       try {
         const results = await getVehicleMakes();
 
@@ -31,6 +38,10 @@ function SearchBar({ onSearch, initialFilters = {} }) {
         setMakes(sortedMakes);
       } catch (error) {
         console.error("Failed to load vehicle makes:", error);
+        setMakes([]);
+        setApiError("Vehicle data could not be loaded. Please try again.");
+      } finally {
+        setIsLoadingMakes(false);
       }
     };
 
@@ -41,9 +52,11 @@ function SearchBar({ onSearch, initialFilters = {} }) {
     const loadModels = async () => {
       if (!selectedYear || !selectedMake) {
         setModels([]);
-        setSelectedModel("");
         return;
       }
+
+      setIsLoadingModels(true);
+      setApiError("");
 
       try {
         const results = await getModelsForMakeYear(selectedMake, selectedYear);
@@ -56,11 +69,30 @@ function SearchBar({ onSearch, initialFilters = {} }) {
       } catch (error) {
         console.error("Failed to load vehicle models:", error);
         setModels([]);
+        setApiError("Vehicle data could not be loaded. Please try again.");
+      } finally {
+        setIsLoadingModels(false);
       }
     };
 
     loadModels();
   }, [selectedYear, selectedMake]);
+
+  const handleClearFilters = () => {
+    setSelectedYear("");
+    setSelectedMake("");
+    setSelectedModel("");
+    setModels([]);
+    setApiError("");
+
+    onSearch({
+      year: "",
+      make: "",
+      model: "",
+    });
+  };
+
+  const isLoading = isLoadingMakes || isLoadingModels;
 
   return (
     <section className="search-section">
@@ -86,6 +118,7 @@ function SearchBar({ onSearch, initialFilters = {} }) {
               setSelectedMake("");
               setSelectedModel("");
               setModels([]);
+              setApiError("");
             }}
           >
             <option value="" disabled>
@@ -109,11 +142,16 @@ function SearchBar({ onSearch, initialFilters = {} }) {
               setSelectedMake(event.target.value);
               setSelectedModel("");
               setModels([]);
+              setApiError("");
             }}
-            disabled={!selectedYear}
+            disabled={!selectedYear || isLoadingMakes || Boolean(apiError)}
           >
             <option value="" disabled>
-              {selectedYear ? "Select Make" : "Select Year First"}
+              {isLoadingMakes
+                ? "Loading Makes..."
+                : selectedYear
+                ? "Select Make"
+                : "Select Year First"}
             </option>
 
             {makes.map((make) => (
@@ -130,10 +168,17 @@ function SearchBar({ onSearch, initialFilters = {} }) {
             id="search-model"
             value={selectedModel}
             onChange={(event) => setSelectedModel(event.target.value)}
-            disabled={!selectedYear || !selectedMake}
+            disabled={
+              !selectedYear ||
+              !selectedMake ||
+              isLoadingModels ||
+              Boolean(apiError)
+            }
           >
             <option value="" disabled>
-              {!selectedYear || !selectedMake
+              {isLoadingModels
+                ? "Loading Models..."
+                : !selectedYear || !selectedMake
                 ? "Select Year & Make First"
                 : "Select Model"}
             </option>
@@ -156,11 +201,31 @@ function SearchBar({ onSearch, initialFilters = {} }) {
               model: selectedModel,
             })
           }
-          disabled={!selectedYear}
+          disabled={!selectedYear || isLoading || Boolean(apiError)}
         >
-          <span>Search</span>
+          <span>{isLoading ? "Loading..." : "Search"}</span>
           <span className="search-button-arrow">→</span>
         </button>
+
+        <button
+          type="button"
+          className="clear-filters-button"
+          onClick={handleClearFilters}
+        >
+          × Clear Filters
+        </button>
+
+        {isLoading && (
+          <p className="search-status" role="status">
+            Loading vehicle data...
+          </p>
+        )}
+
+        {apiError && (
+          <p className="search-status search-error" role="alert">
+            {apiError}
+          </p>
+        )}
       </div>
     </section>
   );
