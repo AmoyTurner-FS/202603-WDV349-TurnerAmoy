@@ -109,6 +109,8 @@ The application will focus on a simple and clean design that allows users to eas
 
 *Use of an API is expected. This can be 3rd party APIs, your own API, or a combination of data sets. Identify which integrations are planned for and outline how you will use them transformatively. For 3rd party APIs provide links to their respective documentation and verify that your intended use complies with their Terms of Service.*
 
+The application will use an API to retrieve vehicle data that can be displayed and filtered by the user. Using an API will allow the application to dynamically load data and provide real time results based on user input.
+
 The CarFinder application will use external APIs to retrieve vehicle data and display it dynamically based on user selections.
 
 One API being considered is the NHTSA Vehicle API. This API provides detailed information about vehicles, including make, model, and year data. It will be used to populate dropdown menus and return accurate vehicle information based on user input.
@@ -122,3 +124,19 @@ Additional research is being done to compare API reliability, data structure, an
 Below is the style tile used for the branding, colors, typography, and direction for the CarFinder application.
 
 ![CarFinder Style Tile](CarFinder.png)
+
+---
+
+# Change Order
+
+## Scope Confirmation
+
+The current proposal continues to accurately represent the overall scope of the CarFinder project. The primary goal remains building a web application that allows users to search and explore vehicle information through a simple and user friendly interface.
+
+## Remaining Work
+
+I estimate that about 60% of the project is still left to complete. The remaining work includes building the frontend, integrating the vehicle API, developing the backend, connecting the database, testing functionality, and preparing the application for deployment.
+
+## Proposed Changes
+
+At this time, I am not requesting any major changes to the original project scope. My focus is on completing the planned features and improving the overall quality and usability of the application.

@@ -38,3 +38,19 @@ For the API, I plan to use Express. Express is a lightweight framework that work
 A popular solution for relational database work is to utilize Sequelize as an ORM. Are you familiar with migrations, models, and seeding? What tools and solutions do you propose for your application? For example, utilizing an ORM to build out models with full validated CRUD.
 
 For the database, I plan to use PostgreSQL along with Sequelize as an ORM. Sequelize helps simplify database interactions by allowing developers to work with models instead of writing raw SQL queries. This will allow me to create models, run migrations, and manage database relationships more efficiently. Using PostgreSQL with Sequelize will also allow the application to support full CRUD functionality and structured data storage.
+
+---
+
+# Change Order
+
+## Scope Confirmation
+
+The current technology stack continues to support the goals of the CarFinder project and provides everything needed to complete the planned functionality.
+
+## Remaining Work
+
+The remaining work includes implementing the frontend with React, building the backend with Node.js and Express, connecting PostgreSQL with Sequelize, integrating the vehicle API, testing the application, and deploying the finished project.
+
+## Proposed Changes
+
+At this time, I do not plan to make any significant changes to the proposed technology stack. If additional libraries or tools are needed during development, they will be evaluated and documented before being added to the project.

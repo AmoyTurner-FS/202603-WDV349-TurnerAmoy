@@ -1,0 +1,88 @@
+const vehicles = [
+  {
+    id: "1",
+    year: "2022",
+    make: "Honda",
+    model: "Civic",
+    price: "24500",
+    mileage: "28000",
+    color: "Black",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "2HGFC2F59NH000001",
+    description:
+      "A reliable and fuel efficient sedan with low mileage and a clean interior.",
+  },
+  {
+    id: "2",
+    year: "2021",
+    make: "Toyota",
+    model: "Camry",
+    price: "23000",
+    mileage: "32000",
+    color: "Silver",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "4T1G11AK5MU000002",
+    description:
+      "A comfortable midsize sedan with strong reliability and everyday practicality.",
+  },
+  {
+    id: "3",
+    year: "2023",
+    make: "Nissan",
+    model: "Altima",
+    price: "27000",
+    mileage: "18000",
+    color: "White",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "1N4BL4BV7PN000003",
+    description:
+      "A modern sedan with low mileage, comfortable seating, and smooth performance.",
+  },
+  {
+    id: "4",
+    year: "2020",
+    make: "BMW",
+    model: "330i",
+    price: "29500",
+    mileage: "41000",
+    color: "Blue",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "3MW5R7J05L8000004",
+    description:
+      "A sporty luxury sedan with responsive performance and premium interior features.",
+  },
+  {
+    id: "5",
+    year: "2022",
+    make: "Audi",
+    model: "A4",
+    price: "31000",
+    mileage: "26000",
+    color: "Gray",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "WAUEAAF45NN000005",
+    description:
+      "A refined luxury sedan with a comfortable cabin and balanced performance.",
+  },
+  {
+    id: "6",
+    year: "2021",
+    make: "Lexus",
+    model: "IS 300",
+    price: "32500",
+    mileage: "30000",
+    color: "Red",
+    transmission: "Automatic",
+    fuelType: "Gasoline",
+    vin: "JTHAA1D20M5000006",
+    description:
+      "A premium sport sedan with a smooth ride, comfortable interior, and strong reliability.",
+  },
+];
+
+export default vehicles;
