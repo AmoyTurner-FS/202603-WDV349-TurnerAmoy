@@ -71,19 +71,15 @@ Next week I plan to fix the remaining issues found during testing and continue m
 ### Week 4
 
 ⚙️ Overview  
-This week I focused on preparing for the alpha stage by organizing my project structure, creating GitHub issues, and updating my research. I also improved my workflow by using feature branches and pull requests.
+This week I focused on preparing CarFinder for its Beta release. I tested the main user flows, completed remaining functionality and UI improvements, reviewed security and analytics, and started the final project clean up and documentation.
 
 🌵 Challenges  
-I had difficulty understanding how to properly manage milestones and issues. I improved this by organizing my work more clearly and following feedback from previous milestones.
+The biggest challenge was deciding which features were important enough to complete before the Beta release. Testing also showed that the Favorites functionality is still incomplete, so I documented it as a known limitation instead of adding more work to the final milestone.
 
 🏆 Accomplishments  
-I improved my project planning by breaking the app into components and using GitHub tools like issues, milestones, and pull requests more effectively.
+I completed Beta use case testing, connected Add Vehicle to the inventory, improved Vehicle Details, connected Dashboard navigation, added Clear Filters, and completed additional UI improvements. I also completed an OWASP security review, researched automated code scanning, planned future analytics, and updated the project roadmap.
 
 🔮 Next Steps  
-Next, I will begin building out front end components and continue following proper development workflow practices.
-
-
-
-
+My next steps are to finish the final code and UI clean up, complete the README and remaining documentation, test the final Beta version, and prepare the dev branch to be merged into staging. Any additional features that are not required for the Beta will remain documented as future development.
 
 <br>
