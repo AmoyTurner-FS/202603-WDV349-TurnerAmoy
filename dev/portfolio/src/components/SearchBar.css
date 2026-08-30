@@ -166,3 +166,17 @@
 .clear-filters-button:hover {
   color: var(--cf-gold);
 }
+
+.search-status {
+  grid-column: 1 / -1;
+  margin: 0;
+
+  color: var(--cf-gray);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
+
+.search-error {
+  color: #ff7b7b;
+}
