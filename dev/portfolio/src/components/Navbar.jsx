@@ -21,10 +21,6 @@ function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-
   const pageTitles = {
     "/": "Dashboard",
     "/search": "Search Cars",
@@ -39,8 +35,12 @@ function Navbar() {
     "/favorites": "Saved Collection",
   };
 
-  let pageTitle = pageTitles[location.pathname] || "Vehicle Details";
-  let pageLabel = pageLabels[location.pathname] || "Vehicle Profile";
+  const pageTitle = pageTitles[location.pathname] || "Vehicle Details";
+  const pageLabel = pageLabels[location.pathname] || "Vehicle Profile";
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="navbar">
@@ -67,10 +67,18 @@ function Navbar() {
 
         {isMenuOpen && (
           <div className="account-menu">
-            <button type="button">Profile</button>
-            <button type="button">Notifications</button>
-            <button type="button">Settings</button>
-            <button type="button">Sign Out</button>
+            <button type="button" onClick={closeMenu}>
+              Profile
+            </button>
+            <button type="button" onClick={closeMenu}>
+              Notifications
+            </button>
+            <button type="button" onClick={closeMenu}>
+              Settings
+            </button>
+            <button type="button" onClick={closeMenu}>
+              Sign Out
+            </button>
           </div>
         )}
       </div>
