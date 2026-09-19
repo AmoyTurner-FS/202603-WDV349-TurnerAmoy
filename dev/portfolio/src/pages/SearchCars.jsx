@@ -24,6 +24,7 @@ const filterVehicles = (vehicles, { year, make, model }) => {
 };
 
 function SearchCars() {
+  document.title = "CarFinder | Search Cars";
   const location = useLocation();
 
   const savedSearch = location.state?.searchState || {

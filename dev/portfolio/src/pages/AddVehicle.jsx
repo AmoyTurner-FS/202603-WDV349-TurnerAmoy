@@ -3,6 +3,7 @@ import { addVehicle } from "../utils/inventory";
 import "./AddVehicle.css";
 
 function AddVehicle() {
+  document.title = "CarFinder | Add Vehicle";
   const [message, setMessage] = useState("");
 
   function handleSubmit(event) {
