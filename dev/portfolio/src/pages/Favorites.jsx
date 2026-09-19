@@ -1,33 +1,20 @@
+import { useState } from "react";
 import CarCard from "../components/CarCard";
+import { getAllVehicles } from "../utils/inventory";
+import { getFavoriteIds, removeFavorite } from "../utils/favorites";
 import "./Favorites.css";
 
 function Favorites() {
-  const favoriteVehicles = [
-    {
-      id: "2",
-      year: "2021",
-      make: "Toyota",
-      model: "Camry",
-      price: "23000",
-      mileage: "32000",
-    },
-    {
-      id: "5",
-      year: "2022",
-      make: "Audi",
-      model: "A4",
-      price: "31000",
-      mileage: "26000",
-    },
-    {
-      id: "6",
-      year: "2021",
-      make: "Lexus",
-      model: "IS 300",
-      price: "32500",
-      mileage: "30000",
-    },
-  ];
+  const [favoriteIds, setFavoriteIds] = useState(() => getFavoriteIds());
+
+  const favoriteVehicles = getAllVehicles().filter((vehicle) =>
+    favoriteIds.some((id) => String(id) === String(vehicle.id))
+  );
+
+  const handleRemoveFavorite = (vehicleId) => {
+    const updatedFavorites = removeFavorite(vehicleId);
+    setFavoriteIds(updatedFavorites);
+  };
 
   return (
     <section className="favorites-page">
@@ -72,6 +59,7 @@ function Favorites() {
                 price={vehicle.price}
                 mileage={vehicle.mileage}
                 showRemoveFavorite={true}
+                onRemoveFavorite={handleRemoveFavorite}
                 fromPage="favorites"
               />
             ))}
