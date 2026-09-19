@@ -5,6 +5,7 @@ import { getFavoriteIds, removeFavorite } from "../utils/favorites";
 import "./Favorites.css";
 
 function Favorites() {
+  document.title = "CarFinder | Favorites";
   const [favoriteIds, setFavoriteIds] = useState(() => getFavoriteIds());
 
   const favoriteVehicles = getAllVehicles().filter((vehicle) =>

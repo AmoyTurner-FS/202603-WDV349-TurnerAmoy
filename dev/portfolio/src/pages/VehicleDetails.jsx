@@ -5,6 +5,7 @@ import { isFavorite, toggleFavorite } from "../utils/favorites";
 import "./VehicleDetails.css";
 
 function VehicleDetails() {
+  document.title = "CarFinder | Vehicle Details";
   const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
