@@ -9,6 +9,7 @@ function CarCard({
   price,
   mileage,
   showRemoveFavorite = false,
+  onRemoveFavorite,
   fromPage = "search",
   searchState = null,
 }) {
@@ -53,8 +54,12 @@ function CarCard({
           </Link>
 
           {showRemoveFavorite && (
-            <button type="button" className="remove-favorite-button">
-              ♡ Remove Favorite
+            <button
+              type="button"
+              className="remove-favorite-button"
+              onClick={() => onRemoveFavorite(id)}
+            >
+              ♥ Remove Favorite
             </button>
           )}
         </div>
