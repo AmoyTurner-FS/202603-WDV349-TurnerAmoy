@@ -1,11 +1,20 @@
+import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getAllVehicles } from "../utils/inventory";
+import { isFavorite, toggleFavorite } from "../utils/favorites";
 import "./VehicleDetails.css";
 
 function VehicleDetails() {
+  document.title = "CarFinder | Vehicle Details";
   const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
+  const [favorite, setFavorite] = useState(() => isFavorite(id));
+
+  const handleFavorite = () => {
+    const newFavoriteState = toggleFavorite(id);
+    setFavorite(newFavoriteState);
+  };
 
   const fromPage = location.state?.from || "search";
   const searchState = location.state?.searchState;
@@ -55,7 +64,13 @@ function VehicleDetails() {
         </div>
 
         {fromPage !== "favorites" && (
-          <button className="favorite-button">♡ Add to Favorites</button>
+          <button
+            type="button"
+            className="favorite-button"
+            onClick={handleFavorite}
+          >
+            {favorite ? "♥ Remove from Favorites" : "♡ Add to Favorites"}
+          </button>
         )}
       </div>
 

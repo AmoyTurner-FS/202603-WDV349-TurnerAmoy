@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 function Dashboard() {
+  document.title = "CarFinder | Dashboard";
   const navigate = useNavigate();
 
   return (
